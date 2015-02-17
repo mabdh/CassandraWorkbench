@@ -1,4 +1,19 @@
-# CassandraWorkbench
+# cassandra-workbench
 
-##Author
-maryam 1
+
+Run Cassandra-workpench:
+-) Installation (done):
+	https://github.com/DaftMonk/generator-angular-fullstack
+
+
+## Quick Install
+
+For building 
+    $ grunt serve
+
+For preview
+    $ grunt serve
+
+For a preview of the built app
+    $ grunt serve:dist
+
