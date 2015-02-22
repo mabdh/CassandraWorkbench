@@ -36,4 +36,19 @@ Install server-side packages using <pre><code>npm install</code></pre>
 
 To run the application simply type the following command <pre><code>grunt serve</code></pre>
 
+##Troubleshoot
+Problem when running "bower install"
+<ul class = "task-list"> 
+<li>
+Clear bower cache <pre><code>bower cache clean</code></pre>
+</li>
 
+<li>
+If it doesn't work (Error, EACCESS) appear. Change .cache permission <pre><code>sudo chown -R username ~/.cache</code></pre>
+</li>
+
+<li>
+Run bower install again <pre><code>bower install</code></pre>
+</li>
+
+</ul>
