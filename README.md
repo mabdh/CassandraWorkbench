@@ -32,12 +32,8 @@ Install server-side packages using <code>npm install</code>
 </ul>
 
 
-For building 
-    $ grunt build
+##Running the application
 
-For preview
-    $ grunt serve
+To run the application simply run the <code>grunt serve</code> command
 
-For a preview of the built app
-    $ grunt serve:dist
 
