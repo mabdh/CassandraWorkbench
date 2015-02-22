@@ -34,6 +34,6 @@ Install server-side packages using <pre><code>npm install</code></pre>
 
 ##Running the application
 
-To run the application simply run the <pre><code>grunt serve</code></pre> command
+To run the application simply type the following command <pre><code>grunt serve</code></pre>
 
 
