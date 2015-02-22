@@ -280,10 +280,10 @@
                         self.query = 'SELECT * FROM schema_keyspaces';
                     break;
                     case nodeType.keyspace:
-                        self.query = 'SELECT * FROM schema_columnfamilies WHERE keyspace_name = ' + node.title;
+                        self.query = 'SELECT * FROM schema_columnfamilies WHERE keyspace_name = ' + node.data.keyspace;
                     break;
                     case nodeType.columnfamily:
-                        self.query = 'SELECT * FROM ' + node.title;
+                        self.query = 'SELECT * FROM ' + node.data.columnfamily;
                     break;
                     default:
                     break;
