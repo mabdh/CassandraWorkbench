@@ -33,13 +33,13 @@ var all = {
   userRoles: ['guest', 'user', 'admin'],
 
   // MongoDB connection options
-  mongo: {
+  /*mongo: {
     options: {
       db: {
         safe: true
       }
     }
-  },
+  },*/
 
 };
 

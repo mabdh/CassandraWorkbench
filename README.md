@@ -9,7 +9,7 @@ Run Cassandra-workpench:
 ## Quick Install
 
 For building 
-    $ grunt serve
+    $ grunt build
 
 For preview
     $ grunt serve
