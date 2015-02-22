@@ -5,22 +5,20 @@ var cassandra = require('cassandra-driver');
 
 // Get list of keyspaces
 exports.getKeyspaces = function (req, res) {
+    //from url
     var contactPoint = req.query.contactPoint;
-
+    //object to be sent to cassandra
     var clientOptions = {};
+    //system -> to get metadata of the system
     clientOptions.keyspace = 'system';
     clientOptions.contactPoints = [contactPoint];
+
     var client = new cassandra.Client(clientOptions);
 
     var query = 'SELECT * FROM schema_keyspaces';
-
+    //err & result are input parameters from the result of the query executed
     client.execute(query, function (err, result) {
         var data = [];
-
-        //console.log('ERROR');
-        //console.log(err);
-        //console.log('DATA');
-        //console.log(result);
 
         if (!err) {
             for (var i in result.rows) {
@@ -30,11 +28,11 @@ exports.getKeyspaces = function (req, res) {
                     type: 'keyspace',
                     contactPoint: contactPoint,
                     keyspace: row.keyspace_name,
-                    lazy: true
+                    lazy: true // fancytree -> has children but have not been loaded yet from DB
                 });
             }
-
-            res.json(data);
+            //can also be sent with "res.send(data);"
+            res.send(data);
         } else {
             res.status(400).send(err);
         }
@@ -70,7 +68,7 @@ exports.getColumnfamilies = function (req, res) {
             });
         }
 
-        res.send(data);
+        res.json(data);
     });
 };
 
@@ -104,7 +102,7 @@ exports.getColumns = function (req, res) {
             });
         }
 
-        res.send(data);
+        res.json(data);
     });
 };
 
@@ -122,10 +120,10 @@ exports.postQueries = function (req, res, next) {
     client.execute(query, function (err, result) {
 
         if (result) {
-            res.send(result);
+            res.json(result);
         } else {
             console.log(err);
-            res.send(err);
+            res.json(err);
         }
     });
 };

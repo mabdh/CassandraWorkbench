@@ -29,11 +29,11 @@
             for(var i in parentList){
                 var parent = parentList[i];
                 if(parent.data.type === nodeType.contactPoint){
-                    self.currentContactPoint = parent.title;
+                    self.currentContactPoint = parent.data.contactPoint;
                     self.currentKeyspace = 'system';
                 }
                 if(parent.data.type === nodeType.keyspace){
-                    self.currentKeyspace = parent.title;
+                    self.currentKeyspace = parent.data.keyspace;
                 }
             }
             
@@ -46,6 +46,7 @@
         $('#connectionTree').fancytree({
             extensions: ['dnd'],
             source: [],
+            //loads children of the node only without grandchildren
             lazyLoad: function (event, data) {
                 var node = data.node;
 
@@ -132,7 +133,8 @@
                   zIndex: 1000,
                   scroll: false,
                   revert: "invalid",
-                  appendTo: "body", // Helper parent (defaults to tree.$container)
+                  appendTo: "body", 
+                  // Helper parent (defaults to tree.$container)
                   helper: function(event) {
                     var $helper,
                       sourceNode = $.ui.fancytree.getNode(event.target),
@@ -172,20 +174,20 @@
                 className: 'ngdialog-theme-default',
 				preCloseCallback: function(dialogResult) {
 
-                    if(!dialogResult || dialogResult === '$closeButton'){
+                    if(!dialogResult || (dialogResult === '$closeButton') || (dialogResult === '$document')){
                         // close dialog
-                        return false;
+                        return true;
                     }
 
                     $(dialogResult.warnElementId).hide();
                     $(dialogResult.errorElementId).hide();
-
+                    //checks if connectionstring entered already exists 
                     for (var i in tree.rootNode.children) {
                         var contactNode = tree.rootNode.children[i];
 
                         if (contactNode.title === dialogResult.contactPoint) {
                             $(dialogResult.warnElementId).show();
-                            return true;
+                            return false;
                         }
                     }
 
@@ -208,17 +210,16 @@
                             connectionNode.setSelected(true);
                             
                             dialog.close();
-                            //return true;
 
                         })
                         .error(function () { // err
                         //self.error = err;
 
-                        $(dialogResult.errorElementId).show();
+                            $(dialogResult.errorElementId).show();
                         //return false
                     });
                     
-                    return true;
+                    return false;
 				}
             });
         };
@@ -253,6 +254,9 @@
                 error(function (err) {
                     self.errorHeader = 'Error';
                     self.errorBody = err;
+                    $('#queryErrorMessage').show();
+                    self.queryResult = [];
+                    self.queryResultColumns = [];
                 });
         };
 
