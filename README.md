@@ -22,11 +22,11 @@ Install bower and grunt globally using <pre><code>npm install -g bower grunt-cli
 </li>
 
 <li>
-Install client-side packages using <pre><code>bower install</code></pre>
+Install client-side dependencies using <pre><code>bower install</code></pre>
 </li>
 
 <li>
-Install server-side packages using <pre><code>npm install</code></pre>
+Install server-side dependencies using <pre><code>npm install</code></pre>
 </li>
 
 </ul>
@@ -38,7 +38,7 @@ To run the application simply type the following command <pre><code>grunt serve<
 
 ##Testing 
 
-<p>To run the client and server unit test use
+<p>To run the client and server unit tests use
 
 	 <pre><code>grunt test</code></pre></p>
 
