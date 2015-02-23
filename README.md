@@ -36,4 +36,15 @@ Install server-side packages using <pre><code>npm install</code></pre>
 
 To run the application simply type the following command <pre><code>grunt serve</code></pre>
 
+##Testing 
+
+<p>To run the client and server unit test use
+
+	 <pre><code>grunt test</code></pre></p>
+
+<p>To only run server tests use <pre><code>grunt test:server</code></pre> </p>
+
+<p>To only run client tests use <pre><code>grunt test:client</code></pre></p>
+
+
 
