@@ -36,7 +36,6 @@ Install server-side dependencies using <pre><code>npm install</code></pre>
 
 To run the application simply type the following command <pre><code>grunt serve</code></pre>
 
-<<<<<<< HEAD
 ##Troubleshoot
 Problem when running "bower install"
 <ul class = "task-list"> 
@@ -47,7 +46,12 @@ Clear bower cache <pre><code>bower cache clean</code></pre>
 <li>
 If it doesn't work (Error, EACCESS) appear. Change .cache permission <pre><code>sudo chown -R username ~/.cache</code></pre>
 </li>
-=======
+<li>
+Run bower install again <pre><code>bower install</code></pre>
+</li>
+
+</ul>
+
 ##Testing 
 
 <p>To run the client and server unit tests use
@@ -57,12 +61,3 @@ If it doesn't work (Error, EACCESS) appear. Change .cache permission <pre><code>
 <p>To only run server tests use <pre><code>grunt test:server</code></pre> </p>
 
 <p>To only run client tests use <pre><code>grunt test:client</code></pre></p>
-
-
->>>>>>> upstream/master
-
-<li>
-Run bower install again <pre><code>bower install</code></pre>
-</li>
-
-</ul>
